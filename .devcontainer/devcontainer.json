@@ -1,0 +1,22 @@
+{
+  "name": "Tauri Dev Environment",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "rust-lang.rust-analyzer",
+        "tauri-apps.tauri-vscode",
+        "esbenp.prettier-vscode"
+      ]
+    }
+  },
+  "forwardPorts": [6080, 1420, 1430],
+  "portsAttributes": {
+    "6080": {
+      "label": "VNC Desktop"
+    }
+  },
+  "postCreateCommand": "sudo /usr/bin/supervisord -c /etc/supervisor/conf.d/supervisord.conf"
+}
